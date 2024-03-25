@@ -1,13 +1,9 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.16)
 project(WebView)
 set(CMAKE_CXX_STANDARD 11)
+include(GNUInstallDirs)
 include(FetchContent)
-# FetchContent_Declare(
-#     webview
-#     GIT_REPOSITORY https://github.com/Michaelzhouisnotwhite/webview-cmake.git
-#     GIT_TAG main
-# )
-# FetchContent_MakeAvailable(webview)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/DownloadWebView.cmake)
 add_library(WebView STATIC src/include/webview.h src/webview.cc)
 add_library(WebView_shared SHARED src/include/webview.h src/webview.cc)
@@ -18,9 +14,7 @@ if(APPLE)
             "-framework WebKit"
     )
 elseif (UNIX)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I/usr/include/javascriptcore")
-    set(CMAKE_LINK_FLAGS "${CMAKE_LINK_FLAGS} -L/usr/lib/javascriptcore")
-    set(LIBRARIES javascriptcore)
+    include_directories(/usr/include)
 elseif (WIN32)
     set(LIBRARIES ws2_32 wsock32)
 endif()

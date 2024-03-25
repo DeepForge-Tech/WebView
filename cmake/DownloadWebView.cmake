@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.16)
 project(webview)
 
 # set(CMAKE_CXX_STANDARD 17)
@@ -19,7 +19,7 @@ if(NOT webview_POPULATED)
     # Library does not have a CMake build script
     # We have to do it ourselves
     FetchContent_Populate(webviewcc)
-    add_library(webview INTERFACE ${webviewcc_SOURCE_DIR}/webview.cc)
+    add_library(webview ${webviewcc_SOURCE_DIR}/webview.cc)
 
     # target_sources(webview INTERFACE ${webview_SOURCE_DIR}/webview.h)
     target_include_directories(webview INTERFACE ${webviewcc_SOURCE_DIR})
