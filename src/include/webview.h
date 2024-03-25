@@ -1317,7 +1317,7 @@ auto parse_version(const T (&version)[Length]) noexcept {
   return parse_version(std::basic_string<T>(version, Length));
 }
 
-std::wstring get_file_version_string(const std::wstring &file_path) noexcept {
+inline std::wstring get_file_version_string(const std::wstring &file_path) noexcept {
   DWORD dummy_handle; // Unused
   DWORD info_buffer_length =
       GetFileVersionInfoSizeW(file_path.c_str(), &dummy_handle);
