@@ -33,7 +33,6 @@
 *.zip
 *.tar.gz
 CMakeFiles/
-*.cmake
 CMakeCache.txt
 /Makefile
 /.ninja_log
