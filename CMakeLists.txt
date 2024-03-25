@@ -23,4 +23,4 @@ target_include_directories(WebView_shared INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/
 target_link_libraries(WebView ${LIBRARIES})
 tarGet_link_libraries(WebView_shared ${LIBRARIES})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
-#add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/examples/example_navigation)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/examples/example_navigation)
